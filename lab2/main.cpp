@@ -91,10 +91,10 @@ int main()
     if (!ImGui::SFML::Init(okno))
         return -1;
 
-    // Wczytywanie tekstur ikon
+    
     sf::Texture texLinia, texProstokat, texPelnyProstokat, texOkrag, texMiotla;
 
-    // Upewnij się, że pliki ikon znajdują się w katalogu roboczym programu
+    
     texLinia.loadFromFile("line.png");
     texProstokat.loadFromFile("square.png");
     texPelnyProstokat.loadFromFile("filled_square.png");
@@ -175,7 +175,7 @@ int main()
 
         ImGui::SFML::Update(okno, zegar.restart());
 
-        // MENU
+       
         if (ImGui::BeginMainMenuBar())
         {
             if (ImGui::BeginMenu("File"))
@@ -248,33 +248,33 @@ int main()
             ImGui::EndMainMenuBar();
         }
 
-        // PANEL TOOLS Z IKONAMI
+        
         ImGui::Begin("Tools");
 
         sf::Vector2f iconSize(24.0f, 24.0f);
 
-        // Przycisk: Linia (używający ikony miotełki)
+        
         if (ImGui::ImageButton("btn_linia_miotla", texMiotla, iconSize))
             narzedzie = LINIA;
         ImGui::SameLine();
         if (ImGui::Button("Linia"))
             narzedzie = LINIA;
 
-        // Przycisk: Prostokat
+        
         if (ImGui::ImageButton("btn_prostokat", texProstokat, iconSize))
             narzedzie = PROSTOKAT;
         ImGui::SameLine();
         if (ImGui::Button("Prostokat"))
             narzedzie = PROSTOKAT;
 
-        // Przycisk: Wypelniony prostokat
+        
         if (ImGui::ImageButton("btn_pelny_prostokat", texPelnyProstokat, iconSize))
             narzedzie = PELNY_PROSTOKAT;
         ImGui::SameLine();
         if (ImGui::Button("Wypelniony prostokat"))
             narzedzie = PELNY_PROSTOKAT;
 
-        // Przycisk: Okrag
+        
         if (ImGui::ImageButton("btn_okrag", texOkrag, iconSize))
             narzedzie = OKRAG;
         ImGui::SameLine();
@@ -327,7 +327,7 @@ int main()
 
         ImGui::End();
 
-        // OKNO ABOUT
+        
         if (about)
         {
             ImGui::OpenPopup("About");
@@ -348,7 +348,7 @@ int main()
             ImGui::EndPopup();
         }
 
-        // POTWIERDZENIE WYJSCIA
+        
         if (potwierdzWyjscie)
             ImGui::OpenPopup("Czy na pewno wyjsc?");
 
@@ -373,7 +373,7 @@ int main()
             ImGui::EndPopup();
         }
 
-        // RYSOWANIE
+       
         okno.clear(sf::Color::White);
 
         sf::Sprite spriteTla(obraz.getTexture());
